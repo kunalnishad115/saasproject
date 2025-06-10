@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import NavItems from "./navItems";
 // import { cn } from "@/lib/utils";
+import { SignInButton,SignedIn , SignedOut , UserButton } from "@clerk/nextjs";
 export default function Navbar() {
   return (
     <nav className="navbar">
@@ -18,7 +19,19 @@ export default function Navbar() {
 
       <div className="flex items-center gap-8">
         <NavItems />
-        <p>Sign In</p>
+
+
+    <SignedOut>
+      <SignInButton>
+         <button className="btn-signin">Sign In</button>
+      </SignInButton>
+    </SignedOut>
+
+    <SignedIn>
+      <UserButton />
+    </SignedIn>
+
+       
       </div>
     </nav>
   )
