@@ -1,10 +1,13 @@
 import React from 'react'
 
-
+import { PricingTable } from '@clerk/nextjs'
 
 export default  function Subscription (){
   return (
-    <div className='flex items-center justify-center h-screen'>
+    <div>
+
+       <PricingTable />
     </div>
+  
   )
 }
