@@ -1,4 +1,6 @@
 "use client"
+import { createCompanion } from "@/lib/actions/companion.action"
+// import {redirect} from "next/navigation";
 import { Select,       //mark for me :: this is tricky to me i need to more practice of form creation in nextjs
     SelectContent,
     SelectItem,
@@ -21,8 +23,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { subjects } from "@/constants"
 import { Textarea } from "@/components/ui/textarea"
+import { redirect } from "next/navigation"
 const formSchema = z.object({
-  username: z.string().min(1,{message : 'Companion name is required'}),
+  name: z.string().min(1,{message : 'Companion name is required'}),
   subject: z.string().min(1,{message : 'subject is required'}),
   topic: z.string().min(1,{message : 'topic is required'}),
   voice: z.string().min(1,{message : 'voice is required'}),
@@ -49,11 +52,16 @@ const form = useForm<z.infer<typeof formSchema>>({
     },
   })
 
-  const onSubmit=(values: z.infer<typeof formSchema>)=> {
-    console.log(values);
-    
-  }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        const companion = await createCompanion(values);
 
+        if(companion) {
+            redirect(`/companion/${companion.id}`);
+        } else {
+            console.log('Failed to create a companion');
+            redirect('/');
+        }
+    }
   return (
       
     <Form {...form}>
