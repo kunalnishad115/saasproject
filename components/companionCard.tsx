@@ -34,7 +34,7 @@ export default function Card({id, name, topic, subject, duration, color} : compa
     </p>
 
   </div>
-<Link href={`/companions/${id}`} className="w-full">
+<Link href={`/companion/${id}`} className="w-full">
 <button className="btn-primary w-full justify-center">
   Launch Lesson
 

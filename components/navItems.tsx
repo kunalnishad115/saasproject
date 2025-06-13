@@ -6,7 +6,7 @@ import  Link  from 'next/link';
 const navtems=[
   
     {label:'Home',href:'/'},
-    {label :'Companions',href:'/companions'},
+    {label :'Companions',href:'/companion'},
     {label :'My Journey',href:'/my-journey'},
 
   
