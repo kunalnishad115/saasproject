@@ -1,9 +1,9 @@
 import React from 'react'
-import {Button} from '@/components/ui/button'
+
 import Card from '@/components/companionCard'
 import CompanionList from '@/components/campanionList'
 import Cta from '@/components/cta'
-import { recentSessions } from '@/constants'
+
 import { getAllCompanions, getRecentSessions } from '@/lib/actions/companion.action'
 import { getSubjectColor } from '@/lib/utils'
 
